@@ -1,0 +1,12 @@
+<html>
+<head>
+    <title>[% Title %]</title>
+</head>
+<body>
+
+[% HTML %]
+
+<h1>[% ErrorMsg %]</h1>
+
+</body>
+</html>
