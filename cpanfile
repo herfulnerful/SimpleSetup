@@ -1,10 +1,10 @@
-require "Plack";
-require "Plack::Builder";    
-require "PSGI";
-require "CGI::PSGI";
-require "Toolkit";
-require "UUID::Tiny";    
-require "LWP::UserAgent";
+requires "Plack";
+requires "Plack::Builder";    
+requires "PSGI";
+requires "CGI::PSGI";
+requires "Toolkit";
+requires "UUID::Tiny";    
+requires "LWP::UserAgent";
 
 
 
