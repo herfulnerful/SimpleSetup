@@ -1,8 +1,8 @@
 <html>
 <head>
-    <title>[% Title %]</title>
+    <title>Error</title>
 </head>
 <body>
-[% HTML %]
+Some sort of error occurred in the Template
 </body>
 </html>

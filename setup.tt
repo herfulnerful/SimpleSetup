@@ -10,7 +10,8 @@
     <tr><td>UUID:</td><td><input type="text" size="36" name="UUID" value="[% UUID %]"></td><td>This is an automatically generated unique number for your grid.</td></tr>
     <tr><td>Location:</td><td>X:<input type="text" size="5" name="LocX" value="[% LocX %]"> Y:<input type="text" size="5" name="LocY" value="[% LocY %]"></td><td>You can pick location for your world at the <a href="http://www.osgrid.org/index.php/gridmap">OsGrid map</a>.  Find a blank spot, and enter the two numbers here</a></td></tr>
     <tr><td>Port:</td><td><input type="text" size="5" name="Port" value="[% Port %]"></td><td>The default is 9000. This port must be opened in your firewall if you want people to visit your sim. </td></tr>
-    <tr><td>Public IP:</td><td><input type="text" size="15" name="SYSTEMIP" value="[% SYSTEMIP %]"></td><td>This is the public-facing IP address of your computer. If you have a registered domain name, enter it here.</td></tr>
+    <tr><td>Public IP or Name:</td><td><input type="text" size="15" name="ExternalHostName" value="[% ExternalHostName %]"></td><td>This is the public-facing IP address of your computer. If you have a registered domain name, enter it here. If you use the lacal IP address or 'localhost', then users on your local area network are the only people that can connect.</td></tr>
+    <tr><td>LAN  IP:</td><td><input type="text" size="15" name="SYSTEMIP" value="[% SYSTEMIP %]"></td><td>This is the LAN IP address of your computer. </td></tr>
     <tr><td></td><td><input type="submit" name="Save"></td></tr>
     </table>
 </form>
