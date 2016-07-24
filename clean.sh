@@ -4,7 +4,7 @@
 sudo rm -r ~/libopenmetaverse
 sudo rm -r ~/opensim-libs
 # clean up git
-sudo apt purge git-core
+#sudo apt purge git-core
 # autoremove is used to remove packages that were automatically installed to satisfy dependencies for some package and that are no more needed.
 sudo apt-get autoremove
 #removes the downloaded packages to free disk space
@@ -14,11 +14,11 @@ sudo apt-get clean
 #shred -n 1 -z -u -v filename #n=overwide n times instead of default 25, z=final overwrite with zeros, u=truncate and remove file after overwriting,v=show progress
 #sudo find /var/log -type f -name "*.gz" -delete
 #
-shred -n 1 -z -u -v ~/opensim-0.8.2.0/bin/OpenSimConsoleHistory.txt
-shred -n 1 -z -u -v ~/opensim-0.8.2.0/bin/OpenSim.log
-shred -n 1 -z -u -v ~/opensim-0.8.2.0/bin/j2kDecodej2kDecodeCacheCache
-shred -n 1 -z -u -v ~/opensim-0.8.2.0/bin/ScriptEngines
-shred -n 1 -z -u -v ~/opensim-0.8.2.0/bin/assetcache
+shred -n 1 -z -u -v ~Opensimulator/opensim-0.8.2.0/bin/OpenSimConsoleHistory.txt
+shred -n 1 -z -u -v ~Opensimulator/opensim-0.8.2.0/bin/OpenSim.log
+shred -n 1 -z -u -v ~Opensimulator/opensim-0.8.2.0/bin/j2kDecodej2kDecodeCacheCache
+shred -n 1 -z -u -v ~Opensimulator/opensim-0.8.2.0/bin/ScriptEngines
+shred -n 1 -z -u -v ~Opensimulator/opensim-0.8.2.0/bin/assetcache
 
 #
 shred -n 1 -z -u -v ~/.nano_history
@@ -41,3 +41,4 @@ sudo shred -n 1 -z -u -v /var/log/fontconfig.log
 sudo shred -n 1 -z -u -v /var/log/apt/history.log
 sudo shred -n 1 -z -u -v /var/log/apt/term.log
 sudo shred -n 1 -z -u -v /var/log/mysql/error.log
+

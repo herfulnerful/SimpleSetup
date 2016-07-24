@@ -5298,3 +5298,285 @@ Work items waiting         : 0
 2016-07-09 15:14:38,554 INFO  (1) - OpenSim.Region.OptionalModules.Avatar.XmlRpcGroups.SimianGroupsServicesConnectorModule [SIMIAN-GROUPS-CONNECTOR]: Closing SimianGroupsServicesConnector
 2016-07-09 15:14:38,561 DEBUG (1) - OpenSim.Region.OptionalModules.Avatar.XmlRpcGroups.XmlRpcGroupsServicesConnectorModule [XMLRPC-GROUPS-CONNECTOR]: Closing XmlRpcGroupsServicesConnector
 2016-07-09 15:14:38,607 INFO  (1) - OpenSim.Framework.Servers.BaseOpenSimServer [SHUTDOWN]: Shutdown processing on main thread complete.  Exiting...
+2016-07-24 23:07:18,123 INFO  (1) - OpenSim.Application [OPENSIM MAIN]: configured log4net using default OpenSim.exe.config
+2016-07-24 23:07:18,216 INFO  (1) - OpenSim.Application [OPENSIM MAIN]: System Locale is en-GB
+2016-07-24 23:07:18,236 INFO  (1) - OpenSim.Application [OPENSIM MAIN]: Environment variable MONO_THREADS_PER_CPU is unset
+2016-07-24 23:07:18,245 INFO  (1) - OpenSim.Application [OPENSIM MAIN]: Runtime gave us 4 min worker threads and 4 min IOCP threads
+2016-07-24 23:07:18,254 INFO  (1) - OpenSim.Application [OPENSIM MAIN]: Runtime gave us 400 max worker threads and 400 max IOCP threads
+2016-07-24 23:07:18,261 INFO  (1) - OpenSim.Application [OPENSIM MAIN]: Bumping up max worker threads to 500
+2016-07-24 23:07:18,269 INFO  (1) - OpenSim.Application [OPENSIM MAIN]: Bumping up max IOCP threads to 1000
+2016-07-24 23:07:18,277 INFO  (1) - OpenSim.Application [OPENSIM MAIN]: Threadpool set to 500 max worker threads and 1000 max IOCP threads
+2016-07-24 23:07:18,326 INFO  (1) - OpenSim.Application [OPENSIM MAIN]: Environment is supported by OpenSimulator.
+2016-07-24 23:07:18,422 INFO  (1) - OpenSim.ConfigurationLoader [CONFIG]: Reading configuration settings
+2016-07-24 23:07:18,433 INFO  (1) - OpenSim.ConfigurationLoader [CONFIG]: Reading configuration file /home/pi/SimpleSetup/Opensimulator/opensim-0.8.2.0/bin/OpenSimDefaults.ini
+2016-07-24 23:07:18,623 INFO  (1) - OpenSim.ConfigurationLoader [CONFIG]: Reading configuration file /home/pi/SimpleSetup/Opensimulator/opensim-0.8.2.0/bin/OpenSim.ini
+2016-07-24 23:07:18,714 INFO  (1) - OpenSim.ConfigurationLoader [CONFIG]: Reading configuration file /home/pi/SimpleSetup/Opensimulator/opensim-0.8.2.0/bin/config-include/osslEnable.ini
+2016-07-24 23:07:18,762 INFO  (1) - OpenSim.ConfigurationLoader [CONFIG]: Reading configuration file /home/pi/SimpleSetup/Opensimulator/opensim-0.8.2.0/bin/config-include/Standalone.ini
+2016-07-24 23:07:18,806 INFO  (1) - OpenSim.ConfigurationLoader [CONFIG]: Reading configuration file /home/pi/SimpleSetup/Opensimulator/opensim-0.8.2.0/bin/config-include/StandaloneCommon.ini
+2016-07-24 23:07:18,868 INFO  (1) - OpenSim.ConfigurationLoader [CONFIG]: Reading configuration file /home/pi/SimpleSetup/Opensimulator/opensim-0.8.2.0/bin/config-include/FlotsamCache.ini
+2016-07-24 23:07:18,908 INFO  (1) - OpenSim.ConfigurationLoader [CONFIG]: Loading environment variables for Config
+2016-07-24 23:07:19,109 INFO  (1) - OpenSim.OpenSim [OPENSIM MAIN]: Using async_call_method SmartThreadPool
+2016-07-24 23:07:19,157 INFO  (1) - OpenSim.OpenSim ====================================================================
+2016-07-24 23:07:19,164 INFO  (1) - OpenSim.OpenSim ========================= STARTING OPENSIM =========================
+2016-07-24 23:07:19,170 INFO  (1) - OpenSim.OpenSim ====================================================================
+2016-07-24 23:07:19,237 INFO  (1) - OpenSim.Framework.Console.LocalConsole [LOCAL CONSOLE]: Persistent command line history is Enabled, up to 100 lines from file /home/pi/SimpleSetup/Opensimulator/opensim-0.8.2.0/bin/OpenSimConsoleHistory.txt
+2016-07-24 23:07:19,252 INFO  (1) - OpenSim.Framework.Console.LocalConsole [LOCAL CONSOLE]: Read 3 lines of command line history from file /home/pi/SimpleSetup/Opensimulator/opensim-0.8.2.0/bin/OpenSimConsoleHistory.txt
+2016-07-24 23:07:19,262 INFO  (1) - OpenSim.Framework.Servers.ServerBase [SERVER BASE]: Starting in /home/pi/SimpleSetup/Opensimulator/opensim-0.8.2.0/bin
+2016-07-24 23:07:19,269 INFO  (1) - OpenSim.Framework.Servers.ServerBase [SERVER BASE]: OpenSimulator version: OpenSim 0.8.2.0 Release          
+2016-07-24 23:07:19,278 INFO  (1) - OpenSim.Framework.Servers.ServerBase [SERVER BASE]: Operating system version: Unix 4.4.13.7, .NET platform Unix, 32-bit
+2016-07-24 23:07:19,319 INFO  (1) - OpenSim.Framework.Servers.ServerBase [SERVER BASE]: Logging started to file /home/pi/SimpleSetup/Opensimulator/opensim-0.8.2.0/bin/OpenSim.log
+2016-07-24 23:07:20,668 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: RegionStore data tables already up to date at revision 50
+2016-07-24 23:07:20,707 INFO  (1) - OpenSim.Data.MySQL.MySQLEstateStore [REGION DB]: MySql - connecting: Data Source=localhost;Database=opensim;User ID=opensimuser;Password=***;Old Guids=true;
+2016-07-24 23:07:20,733 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: EstateStore data tables already up to date at revision 33
+2016-07-24 23:07:20,906 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread Non-blocking non-critical job engine, ID 23
+2016-07-24 23:07:20,942 INFO  (1) - OpenSim.RegionApplicationBase [REGION SERVER]: Starting HTTP server on port 9000
+2016-07-24 23:07:20,959 INFO  (1) - OpenSim.Framework.Servers.HttpServer.BaseHttpServer [BASE HTTP SERVER]: Starting HTTP server on port 9000
+2016-07-24 23:07:21,048 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread PollServiceWorkerThread0:9000, ID 26
+2016-07-24 23:07:21,062 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread PollServiceWorkerThread1:9000, ID 27
+2016-07-24 23:07:21,073 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread PollServiceWorkerThread2:9000, ID 28
+2016-07-24 23:07:21,087 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread LongPollServiceWatcherThread:9000, ID 29
+2016-07-24 23:07:21,296 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Initializing addin manager
+2016-07-24 23:07:29,025 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim
+2016-07-24 23:07:29,059 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Region.Framework
+2016-07-24 23:07:29,073 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: Robust
+2016-07-24 23:07:29,117 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Data
+2016-07-24 23:07:29,489 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Loading extension point /OpenSim/Startup
+2016-07-24 23:07:29,631 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Trying plugin /OpenSim/Startup/LoadRegions
+2016-07-24 23:07:29,644 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.ApplicationPlugins.RemoteController
+2016-07-24 23:07:29,670 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Trying plugin /OpenSim/Startup/LoadRegions
+2016-07-24 23:07:29,681 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.ApplicationPlugins.RegionModulesController
+2016-07-24 23:07:29,699 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Trying plugin /OpenSim/Startup/LoadRegions
+2016-07-24 23:07:29,710 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.ApplicationPlugins.LoadRegions
+2016-07-24 23:07:29,794 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: LindenCaps
+2016-07-24 23:07:29,822 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Region.PhysicsModules.Meshing
+2016-07-24 23:07:29,838 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Region.PhysicsModule.BulletS
+2016-07-24 23:07:29,852 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: LindenUDP
+2016-07-24 23:07:29,865 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Region.PhysicsModule.ODE
+2016-07-24 23:07:29,877 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Groups
+2016-07-24 23:07:29,891 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Region.CoreModules
+2016-07-24 23:07:29,952 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Region.PhysicsModule.BasicPhysics
+2016-07-24 23:07:29,964 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Region.ScriptEngine.XEngine
+2016-07-24 23:07:29,980 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Region.OptionalModules
+2016-07-24 23:07:30,008 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.OfflineIM
+2016-07-24 23:07:30,021 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: SimianGrid
+2016-07-24 23:07:30,033 INFO  (1) - OpenSim.Framework.PluginLoader`1 [PLUGINS]: Plugin Loaded: OpenSim.Region.PhysicsModule.POS
+2016-07-24 23:07:30,046 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin LindenCaps, (version 0.8.2.0), loaded 16 modules, 2 shared, 14 non-shared 0 unknown
+2016-07-24 23:07:30,053 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin OpenSim.Region.PhysicsModules.Meshing, (version 0.8.2.0), loaded 2 modules, 0 shared, 2 non-shared 0 unknown
+2016-07-24 23:07:30,061 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin OpenSim.Region.PhysicsModule.BulletS, (version 0.8.2.0), loaded 2 modules, 0 shared, 2 non-shared 0 unknown
+2016-07-24 23:07:30,068 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin LindenUDP, (version 0.8.2.0), loaded 1 modules, 0 shared, 1 non-shared 0 unknown
+2016-07-24 23:07:30,075 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin OpenSim.Region.PhysicsModule.ODE, (version 0.8.2.0), loaded 1 modules, 0 shared, 1 non-shared 0 unknown
+2016-07-24 23:07:30,082 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin OpenSim.Groups, (version 0.8.2.0), loaded 5 modules, 5 shared, 0 non-shared 0 unknown
+2016-07-24 23:07:30,090 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin OpenSim.Region.CoreModules, (version 0.8.2.0), loaded 123 modules, 79 shared, 44 non-shared 0 unknown
+2016-07-24 23:07:30,097 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin OpenSim.Region.PhysicsModule.BasicPhysics, (version 0.8.2.0), loaded 1 modules, 0 shared, 1 non-shared 0 unknown
+2016-07-24 23:07:30,105 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin OpenSim.Region.ScriptEngine.XEngine, (version 0.8.2.0), loaded 1 modules, 0 shared, 1 non-shared 0 unknown
+2016-07-24 23:07:30,112 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin OpenSim.Region.OptionalModules, (version 0.8.2.0), loaded 44 modules, 24 shared, 20 non-shared 0 unknown
+2016-07-24 23:07:30,119 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin OpenSim.OfflineIM, (version 0.8.2.0), loaded 1 modules, 1 shared, 0 non-shared 0 unknown
+2016-07-24 23:07:30,127 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin SimianGrid, (version 0.8.2.0), loaded 10 modules, 8 shared, 2 non-shared 0 unknown
+2016-07-24 23:07:30,135 INFO  (1) - OpenSim.ApplicationPlugins.RegionModulesController.RegionModulesControllerPlugin [REGIONMODULES]: From plugin OpenSim.Region.PhysicsModule.POS, (version 0.8.2.0), loaded 1 modules, 0 shared, 1 non-shared 0 unknown
+2016-07-24 23:07:30,310 INFO  (1) - OpenSim.Region.CoreModules.Asset.FlotsamAssetCache [FLOTSAM ASSET CACHE]: FlotsamAssetCache enabled
+2016-07-24 23:07:30,324 INFO  (1) - OpenSim.Region.CoreModules.Asset.FlotsamAssetCache [FLOTSAM ASSET CACHE]: Cache Directory ./assetcache
+2016-07-24 23:07:30,405 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: FriendsStore data tables already up to date at revision 3
+2016-07-24 23:07:30,453 DEBUG (1) - OpenSim.Region.CoreModules.Avatar.Friends.FriendsModule [FRIENDS MODULE]: FriendsModule enabled.
+2016-07-24 23:07:30,479 INFO  (1) - OpenSim.Region.CoreModules.Avatar.Groups.GroupsModule [GROUPS]: Groups disabled in configuration
+2016-07-24 23:07:30,498 DEBUG (1) - OpenSim.Region.CoreModules.Avatar.InstantMessage.HGMessageTransferModule [HG MESSAGE TRANSFER]: Disabled by configuration
+2016-07-24 23:07:30,554 DEBUG (1) - OpenSim.Region.CoreModules.Avatar.Lure.LureModule [LURE MODULE]: LureModule enabled
+2016-07-24 23:07:30,572 DEBUG (1) - OpenSim.Region.CoreModules.Framework.Library.LibraryModule [LIBRARY MODULE]: Library service dll is OpenSim.Services.InventoryService.dll:LibraryService
+2016-07-24 23:07:30,595 DEBUG (1) - OpenSim.Services.InventoryService.LibraryService [LIBRARY]: Starting library service...
+2016-07-24 23:07:30,620 INFO  (1) - OpenSim.Services.InventoryService.LibraryService [LIBRARY INVENTORY]: Loading library control file ./inventory/Libraries.xml
+2016-07-24 23:07:30,896 DEBUG (1) - OpenSim.Region.CoreModules.Framework.Search.BasicSearchModule [BASIC SEARCH MODULE]: BasicSearchModule is enabled
+2016-07-24 23:07:30,932 DEBUG (1) - OpenSim.Region.CoreModules.Framework.UserManagement.UserManagementModule [USER MANAGEMENT MODULE]: BasicUserManagementModule is enabled
+2016-07-24 23:07:30,969 DEBUG (1) - OpenSim.Framework.OutboundUrlFilter [OUTBOUND URL FILTER]: OutboundDisallowForUserScripts for Script HTTP request module is [0.0.0.0/8|10.0.0.0/8|100.64.0.0/10|127.0.0.0/8|169.254.0.0/16|172.16.0.0/12|192.0.0.0/24|192.0.2.0/24|192.88.99.0/24|192.168.0.0/16|198.18.0.0/15|198.51.100.0/24|203.0.113.0/24|224.0.0.0/4|240.0.0.0/4|255.255.255.255/32]
+2016-07-24 23:07:30,983 DEBUG (1) - OpenSim.Framework.OutboundUrlFilter [OUTBOUND URL FILTER]: OutboundDisallowForUserScriptsExcept for Script HTTP request module is []
+2016-07-24 23:07:31,071 DEBUG (1) - OpenSim.Framework.OutboundUrlFilter [OUTBOUND URL FILTER]: OutboundDisallowForUserScripts for Script dynamic texture image module is [0.0.0.0/8|10.0.0.0/8|100.64.0.0/10|127.0.0.0/8|169.254.0.0/16|172.16.0.0/12|192.0.0.0/24|192.0.2.0/24|192.88.99.0/24|192.168.0.0/16|198.18.0.0/15|198.51.100.0/24|203.0.113.0/24|224.0.0.0/4|240.0.0.0/4|255.255.255.255/32]
+2016-07-24 23:07:31,090 DEBUG (1) - OpenSim.Framework.OutboundUrlFilter [OUTBOUND URL FILTER]: OutboundDisallowForUserScriptsExcept for Script dynamic texture image module is []
+2016-07-24 23:07:31,106 DEBUG (1) - OpenSim.Region.CoreModules.Scripting.VectorRender.VectorRenderModule [VECTORRENDERMODULE]: using font "Arial" for text rendering.
+2016-07-24 23:07:31,514 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsIn.Grid.GridInfoServiceInConnectorModule [GRIDINFO IN CONNECTOR]: GridInfo Service In Connector enabled
+2016-07-24 23:07:31,538 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsIn.Login.LLLoginServiceInConnectorModule [LLLOGIN IN CONNECTOR]: LLLoginerviceInConnector enabled
+2016-07-24 23:07:31,552 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsIn.MapImage.MapImageServiceInConnectorModule [MAP SERVICE IN CONNECTOR]: MapImage Service In Connector enabled
+2016-07-24 23:07:31,582 DEBUG (1) - OpenSim.Services.MapImageService.MapImageService [MAP IMAGE SERVICE]: Starting MapImage service
+2016-07-24 23:07:31,604 DEBUG (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Profile.LocalUserProfilesServicesConnector [LOCAL USERPROFILES SERVICE CONNECTOR]: LocalUserProfileServicesConnector no params
+2016-07-24 23:07:31,622 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Profile.LocalUserProfilesServicesConnector [LOCAL USERPROFILES SERVICE CONNECTOR]: Local user profiles connector enabled
+2016-07-24 23:07:31,660 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: AgentPrefs data tables already up to date at revision 1
+2016-07-24 23:07:31,669 DEBUG (1) - OpenSim.Services.UserAccountService.AgentPreferencesService [AGENT PREFERENCES SERVICE]: Starting agent preferences service
+2016-07-24 23:07:31,677 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.AgentPreferences.LocalAgentPreferencesServicesConnector [AGENT PREFERENCES CONNECTOR]: Local agent preferences connector enabled
+2016-07-24 23:07:31,704 DEBUG (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Asset.LocalAssetServicesConnector [LOCAL ASSET SERVICES CONNECTOR]: Loading asset service at OpenSim.Services.AssetService.dll:AssetService
+2016-07-24 23:07:31,747 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: AssetStore data tables already up to date at revision 9
+2016-07-24 23:07:31,764 DEBUG (1) - OpenSim.Services.AssetService.AssetService [ASSET SERVICE]: Loading default asset set from assets/AssetSets.xml
+2016-07-24 23:07:40,096 DEBUG (1) - OpenSim.Services.AssetService.AssetService [ASSET SERVICE]: Local asset service enabled
+2016-07-24 23:07:40,105 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Asset.LocalAssetServicesConnector [LOCAL ASSET SERVICES CONNECTOR]: Local asset connector enabled
+2016-07-24 23:07:40,153 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: AuthStore data tables already up to date at revision 3
+2016-07-24 23:07:40,162 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Authentication.LocalAuthenticationServicesConnector [AUTH CONNECTOR]: Local Authentication connector enabled
+2016-07-24 23:07:40,214 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: Avatar data tables already up to date at revision 2
+2016-07-24 23:07:40,222 DEBUG (1) - OpenSim.Services.AvatarService.AvatarService [AVATAR SERVICE]: Starting avatar service
+2016-07-24 23:07:40,231 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Avatar.LocalAvatarServicesConnector [AVATAR CONNECTOR]: Local avatar connector enabled
+2016-07-24 23:07:40,252 DEBUG (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Grid.LocalGridServicesConnector [LOCAL GRID SERVICE CONNECTOR] LocalGridServicesConnector no parms.
+2016-07-24 23:07:40,292 DEBUG (1) - OpenSim.Services.GridService.GridService [GRID SERVICE]: Starting...
+2016-07-24 23:07:40,320 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Grid.LocalGridServicesConnector [LOCAL GRID SERVICE CONNECTOR]: Local grid connector enabled
+2016-07-24 23:07:40,394 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: GridUserStore data tables already up to date at revision 2
+2016-07-24 23:07:40,404 DEBUG (1) - OpenSim.Services.UserAccountService.GridUserService [GRID USER SERVICE]: Starting user grid service
+2016-07-24 23:07:40,415 DEBUG (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.GridUser.ActivityDetector [ACTIVITY DETECTOR]: starting 
+2016-07-24 23:07:40,424 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.GridUser.LocalGridUserServicesConnector [LOCAL GRID USER SERVICE CONNECTOR]: Local grid user connector enabled
+2016-07-24 23:07:40,469 DEBUG (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Inventory.LocalInventoryServicesConnector [LOCAL INVENTORY SERVICES CONNECTOR]: Service dll = OpenSim.Services.InventoryService.dll:XInventoryService
+2016-07-24 23:07:40,507 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: InventoryStore data tables already up to date at revision 6
+2016-07-24 23:07:40,518 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Inventory.LocalInventoryServicesConnector [LOCAL INVENTORY SERVICES CONNECTOR]: Local inventory connector enabled
+2016-07-24 23:07:40,539 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Land.LocalLandServicesConnector [LAND CONNECTOR]: Local land connector enabled
+2016-07-24 23:07:40,563 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.MapImage.MapImageServiceModule [MAP IMAGE SERVICE MODULE]: enabled with no refresh and service object OpenSim.Services.MapImageService.dll:MapImageService
+2016-07-24 23:07:40,578 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Neighbour.LocalNeighbourServicesConnector [NEIGHBOUR CONNECTOR]: Local neighbour connector enabled
+2016-07-24 23:07:40,600 DEBUG (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Presence.LocalPresenceServicesConnector [LOCAL PRESENCE CONNECTOR]: Service dll = OpenSim.Services.PresenceService.dll:PresenceService
+2016-07-24 23:07:40,626 DEBUG (1) - OpenSim.Services.PresenceService.PresenceService [PRESENCE SERVICE]: Starting presence service
+2016-07-24 23:07:40,635 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Presence.LocalPresenceServicesConnector [LOCAL PRESENCE CONNECTOR]: Local presence connector enabled
+2016-07-24 23:07:40,654 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Simulation.LocalSimulationConnectorModule [LOCAL SIMULATION CONNECTOR]: Local simulation enabled.
+2016-07-24 23:07:40,766 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: UserAccount data tables already up to date at revision 4
+2016-07-24 23:07:40,779 DEBUG (1) - OpenSim.Services.GridService.GridService [GRID SERVICE]: Starting...
+2016-07-24 23:07:40,800 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: AuthStore data tables already up to date at revision 3
+2016-07-24 23:07:40,822 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: GridUserStore data tables already up to date at revision 2
+2016-07-24 23:07:40,831 DEBUG (1) - OpenSim.Services.UserAccountService.GridUserService [GRID USER SERVICE]: Starting user grid service
+2016-07-24 23:07:40,855 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: InventoryStore data tables already up to date at revision 6
+2016-07-24 23:07:40,877 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: Avatar data tables already up to date at revision 2
+2016-07-24 23:07:40,886 DEBUG (1) - OpenSim.Services.AvatarService.AvatarService [AVATAR SERVICE]: Starting avatar service
+2016-07-24 23:07:40,905 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.UserAccounts.LocalUserAccountServicesConnector [LOCAL USER ACCOUNT SERVICE CONNECTOR]: Local user connector enabled
+2016-07-24 23:07:40,942 INFO  (1) - OpenSim.Region.CoreModules.World.Serialiser.SerialiserModule [Serialiser] Enabled, using save dir "exports"
+2016-07-24 23:07:41,210 DEBUG (1) - OpenSim.ApplicationPlugins.RemoteController.RemoteAdminPlugin [RADMIN]: Creating default avatar entries
+2016-07-24 23:07:41,219 DEBUG (1) - OpenSim.ApplicationPlugins.RemoteController.RemoteAdminPlugin [RADMIN]: No default avatar information available
+2016-07-24 23:07:41,227 INFO  (1) - OpenSim.ApplicationPlugins.RemoteController.RemoteAdminPlugin [RADMIN]: Default avatars not loaded
+2016-07-24 23:07:41,264 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsIn.Login.LLLoginServiceInConnectorModule [LLLOGIN IN CONNECTOR]: Starting...
+2016-07-24 23:07:41,318 INFO  (1) - OpenSim.ApplicationPlugins.LoadRegions.LoadRegionsPlugin [LOAD REGIONS PLUGIN]: Loading region configurations from filesystem
+2016-07-24 23:07:41,338 INFO  (1) - OpenSim.ApplicationPlugins.LoadRegions.RegionLoaderFileSystem [REGION LOADER FILE SYSTEM]: Loading config files from ./Regions
+2016-07-24 23:07:41,347 INFO  (1) - OpenSim.ApplicationPlugins.LoadRegions.RegionLoaderFileSystem [REGION LOADER FILE SYSTEM]: Loading config file ./Regions/Regions.ini
+2016-07-24 23:07:41,418 INFO  (1) - OpenSim.Framework.RegionInfo [REGIONINFO]: Resolving SYSTEMIP to 192.168.1.157 for external hostname of region opensimpi
+2016-07-24 23:07:41,435 INFO  (1) - OpenSim.ApplicationPlugins.LoadRegions.RegionLoaderFileSystem [REGION LOADER FILE SYSTEM]: Loaded config for region opensimpi
+2016-07-24 23:07:41,444 INFO  (1) - OpenSim.ApplicationPlugins.LoadRegions.LoadRegionsPlugin [LOAD REGIONS PLUGIN]: Loading specific shared modules...
+2016-07-24 23:07:41,453 INFO  (1) - OpenSim.ApplicationPlugins.LoadRegions.LoadRegionsPlugin [LOAD REGIONS PLUGIN]: Done.
+2016-07-24 23:07:41,471 DEBUG (1) - OpenSim.ApplicationPlugins.LoadRegions.LoadRegionsPlugin [LOAD REGIONS PLUGIN]: Creating Region: opensimpi (ThreadID: 1)
+2016-07-24 23:07:41,850 INFO  (1) - OpenSim.Region.Framework.Scenes.Scene [SCENE]: Region opensimpi, WORLD MAP refresh time set to 0 seconds
+2016-07-24 23:07:41,862 DEBUG (1) - OpenSim.Region.Framework.Scenes.Scene [SCENE]: Using the BestAvatarResponsiveness prioritization scheme
+2016-07-24 23:07:41,870 INFO  (1) - OpenSim.Region.Framework.Scenes.Scene [SCENE]: Using high-resolution performance counter for statistics.
+2016-07-24 23:07:42,069 DEBUG (1) - OpenSim.Framework.HeightmapTerrainData [HEIGHTMAP TERRAIN DATA] HeightmapTerrainData create from legacy serialization. Size=<256,256>
+2016-07-24 23:07:42,080 INFO  (1) - OpenSim.OpenSimBase [MODULES]: Loading Region's modules (old style)
+2016-07-24 23:07:42,089 INFO  (1) - OpenSim.OpenSimBase [REGIONMODULES]: Loading Region's modules (new style)
+2016-07-24 23:07:42,188 INFO  (1) - OpenSim.Region.CoreModules.Avatar.Chat.ChatModule [CHAT]: Initialized for opensimpi w:10 s:20 S:100
+2016-07-24 23:07:42,252 DEBUG (1) - OpenSim.Region.CoreModules.Avatar.InstantMessage.MessageTransferModule [MESSAGE TRANSFER]: Message transfer module active
+2016-07-24 23:07:42,420 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Presence.BasePresenceServiceConnector [BASE PRESENCE SERVICE CONNECTOR]: Enabled for region opensimpi
+2016-07-24 23:07:43,381 INFO  (1) - OpenSim.Region.PhysicsModule.BulletS.ExtendedPhysics [EXTENDED PHYSICS] module is not enabled
+2016-07-24 23:07:45,630 DEBUG (1) - OpenSim.Region.CoreModules.Framework.EntityTransfer.EntityTransferModule [ENTITY TRANSFER MODULE]: BasicEntityTransferModule enabled.
+2016-07-24 23:07:45,657 INFO  (1) - OpenSim.Region.CoreModules.Framework.InventoryAccess.BasicInventoryAccessModule [INVENTORY ACCESS MODULE]: BasicInventoryAccessModule enabled.
+2016-07-24 23:07:45,729 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Authorization.LocalAuthorizationServicesConnector [AUTHORIZATION CONNECTOR]: Initialise
+2016-07-24 23:07:45,737 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Authorization.LocalAuthorizationServicesConnector [AUTHORIZATION CONNECTOR]: Local authorization connector enabled
+2016-07-24 23:07:45,793 INFO  (1) - OpenSim.Region.CoreModules.World.LightShare.EnvironmentModule [EnvironmentModule]: Module is enabled.
+2016-07-24 23:07:45,812 DEBUG (1) - OpenSim.Region.CoreModules.World.LightShare.LightShareModule [WINDLIGHT]: windlight module disabled
+2016-07-24 23:07:45,853 DEBUG (1) - OpenSim.Region.CoreModules.World.Permissions.PermissionsModule [PERMISSIONS]: allowed_script_creators All
+2016-07-24 23:07:45,862 DEBUG (1) - OpenSim.Region.CoreModules.World.Permissions.PermissionsModule [PERMISSIONS]: allowed_script_editors All
+2016-07-24 23:07:45,870 DEBUG (1) - OpenSim.Region.CoreModules.World.Permissions.PermissionsModule [PERMISSIONS]: Enabling all region service permission checks
+2016-07-24 23:07:45,898 DEBUG (1) - OpenSim.Region.CoreModules.SunModule [SUN]: localtime offset is 0
+2016-07-24 23:07:45,907 DEBUG (1) - OpenSim.Region.CoreModules.SunModule [SUN]: Initialization completed. Day is 14400 seconds, and year is 60 days
+2016-07-24 23:07:45,915 DEBUG (1) - OpenSim.Region.CoreModules.SunModule [SUN]: Axis offset is 0.5
+2016-07-24 23:07:45,924 DEBUG (1) - OpenSim.Region.CoreModules.SunModule [SUN]: Percentage of time for daylight 0.5
+2016-07-24 23:07:45,932 DEBUG (1) - OpenSim.Region.CoreModules.SunModule [SUN]: Positional data updated every 100 frames
+2016-07-24 23:07:45,991 INFO  (1) - OpenSim.Region.CoreModules.WindModule [WIND] Enabled with an update rate of 150 frames.
+2016-07-24 23:07:46,068 INFO  (1) - OpenSim.Region.ScriptEngine.XEngine.XEngine [XEngine]: Script stop strategy is co-op
+2016-07-24 23:07:46,100 DEBUG (1) - OpenSim.Region.OptionalModules.Materials.MaterialsModule [Materials]: Initialized
+2016-07-24 23:07:46,203 DEBUG (1) - OpenSim.Region.OptionalModules.World.TreePopulator.TreePopulatorModule [TREES]: Initialised tree module
+2016-07-24 23:07:46,295 INFO  (1) - OpenSim.Region.ClientStack.LindenUDP.LLUDPServer [LLUDPSERVER]: Average Environment.TickCount resolution: 1ms
+2016-07-24 23:07:46,503 DEBUG (1) - OpenSim.Region.PhysicsModule.ODE.OdeScene [ODE SCENE]: Setting terrain for OpenDynamicsEngine/opensimpi with offset <0, 0, 0>
+2016-07-24 23:07:46,635 DEBUG (1) - OpenSim.Region.PhysicsModule.ODE.OdeScene [ODE SCENE]: Setting terrain for OpenDynamicsEngine/opensimpi took 132ms
+2016-07-24 23:07:47,245 INFO  (1) - OpenSim.Region.CoreModules.World.Terrain.TerrainModule E ... ChannelDigger
+2016-07-24 23:07:47,253 INFO  (1) - OpenSim.Region.CoreModules.World.Terrain.TerrainModule L ... GenericSystemDrawing
+2016-07-24 23:07:47,260 INFO  (1) - OpenSim.Region.CoreModules.World.Terrain.TerrainModule L ... JPEG
+2016-07-24 23:07:47,557 INFO  (1) - OpenSim.Region.CoreModules.World.Terrain.TerrainModule L ... LLRAW
+2016-07-24 23:07:47,564 INFO  (1) - OpenSim.Region.CoreModules.World.Terrain.TerrainModule L ... RAW32
+2016-07-24 23:07:47,655 INFO  (1) - OpenSim.Region.CoreModules.WindModule [WIND] Found Plugin: ConfigurableWind
+2016-07-24 23:07:47,663 INFO  (1) - OpenSim.Region.CoreModules.WindModule [WIND] Found Plugin: SimpleRandomWind
+2016-07-24 23:07:47,669 INFO  (1) - OpenSim.Region.CoreModules.WindModule [WIND] SimpleRandomWind plugin found, initializing.
+2016-07-24 23:07:47,690 INFO  (1) - OpenSim.Region.CoreModules.World.WorldMap.WorldMapModule [WORLD MAP]: JPEG Map location: http://192.168.1.157:9000/index.php?method=regionImage661ea5b3509b45c18ccb5b9a3d28573b
+2016-07-24 23:07:47,713 INFO  (1) - OpenSim.Region.ScriptEngine.XEngine.XEngine [XEngine]: Initializing scripts in region opensimpi
+2016-07-24 23:07:47,752 DEBUG (1) - OpenSim.Region.OptionalModules.Scripting.RegionReady.RegionReadyModule [RegionReady]: Enabled for region opensimpi
+2016-07-24 23:07:47,893 WARN  (1) - OpenSim.Region.CoreModules.Framework.Search.BasicSearchModule [BASIC SEARCH MODULE]: Could not get IGroupsModule
+2016-07-24 23:07:47,924 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsIn.Grid.GridInfoServiceInConnectorModule [GridInfo]: Starting...
+2016-07-24 23:07:47,941 DEBUG (1) - OpenSim.Server.Handlers.Grid.GridInfoHandlers [GRID INFO SERVICE]: Grid info service initialized with 4 keys
+2016-07-24 23:07:47,961 DEBUG (1) - OpenSim.Server.Handlers.Login.LLLoginServiceInConnector [LLLOGIN IN CONNECTOR]: Starting...
+2016-07-24 23:07:48,009 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: UserAccount data tables already up to date at revision 4
+2016-07-24 23:07:48,019 DEBUG (1) - OpenSim.Services.GridService.GridService [GRID SERVICE]: Starting...
+2016-07-24 23:07:48,039 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: AuthStore data tables already up to date at revision 3
+2016-07-24 23:07:48,059 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: GridUserStore data tables already up to date at revision 2
+2016-07-24 23:07:48,068 DEBUG (1) - OpenSim.Services.UserAccountService.GridUserService [GRID USER SERVICE]: Starting user grid service
+2016-07-24 23:07:48,090 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: InventoryStore data tables already up to date at revision 6
+2016-07-24 23:07:48,110 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: Avatar data tables already up to date at revision 2
+2016-07-24 23:07:48,118 DEBUG (1) - OpenSim.Services.AvatarService.AvatarService [AVATAR SERVICE]: Starting avatar service
+2016-07-24 23:07:48,138 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: GridUserStore data tables already up to date at revision 2
+2016-07-24 23:07:48,146 DEBUG (1) - OpenSim.Services.UserAccountService.GridUserService [GRID USER SERVICE]: Starting user grid service
+2016-07-24 23:07:48,166 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: AuthStore data tables already up to date at revision 3
+2016-07-24 23:07:48,190 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: InventoryStore data tables already up to date at revision 6
+2016-07-24 23:07:48,201 DEBUG (1) - OpenSim.Services.GridService.GridService [GRID SERVICE]: Starting...
+2016-07-24 23:07:48,211 DEBUG (1) - OpenSim.Services.PresenceService.PresenceService [PRESENCE SERVICE]: Starting presence service
+2016-07-24 23:07:48,230 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: Avatar data tables already up to date at revision 2
+2016-07-24 23:07:48,238 DEBUG (1) - OpenSim.Services.AvatarService.AvatarService [AVATAR SERVICE]: Starting avatar service
+2016-07-24 23:07:48,258 DEBUG (1) - OpenSim.Data.Migration [MIGRATIONS]: FriendsStore data tables already up to date at revision 3
+2016-07-24 23:07:48,266 DEBUG (1) - OpenSim.Services.LLLoginService.LLLoginService [LLOGIN SERVICE]: Using LibraryService given as argument
+2016-07-24 23:07:48,288 DEBUG (1) - OpenSim.Services.LLLoginService.LLLoginService [LLOGIN SERVICE]: Starting...
+2016-07-24 23:07:48,314 DEBUG (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Asset.LocalAssetServicesConnector [LOCAL ASSET SERVICES CONNECTOR]: Enabled connector for region opensimpi
+2016-07-24 23:07:48,322 DEBUG (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Asset.LocalAssetServicesConnector [LOCAL ASSET SERVICES CONNECTOR]: Enabled asset caching for region opensimpi
+2016-07-24 23:07:48,338 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.GridUser.LocalGridUserServicesConnector [LOCAL GRID USER SERVICE CONNECTOR]: Enabled local grid user for region opensimpi
+2016-07-24 23:07:48,351 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Neighbour.LocalNeighbourServicesConnector [NEIGHBOUR CONNECTOR]: Local neighbour connector enabled for region opensimpi
+2016-07-24 23:07:48,363 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.UserAccounts.LocalUserAccountServicesConnector [LOCAL USER ACCOUNT SERVICE CONNECTOR]: Enabled local user accounts for region opensimpi
+2016-07-24 23:07:48,448 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread InventoryWorkerThread0, ID 33
+2016-07-24 23:07:48,458 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread InventoryWorkerThread1, ID 34
+2016-07-24 23:07:48,479 INFO  (1) - OpenSim.Region.ClientStack.LindenUDP.LLUDPServer [LLUDPSERVER]: Starting inbound packet processing for the LLUDP server in asynchronous mode with UsePools = True
+2016-07-24 23:07:48,491 DEBUG (1) - OpenMetaverse.OpenSimUDPBase [UDPBASE]: Starting inbound UDP loop
+2016-07-24 23:07:48,499 DEBUG (1) - OpenMetaverse.OpenSimUDPBase [UDPBASE]: Binding UDP listener using internal IP address config 0.0.0.0:9000
+2016-07-24 23:07:48,515 DEBUG (1) - OpenMetaverse.OpenSimUDPBase [UDPBASE]: SIO_UDP_CONNRESET flag not supported on this platform, ignoring
+2016-07-24 23:07:48,537 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread Incoming Packets (opensimpi), ID 35
+2016-07-24 23:07:48,548 INFO  (1) - OpenSim.Region.ClientStack.LindenUDP.LLUDPServer [LLUDPSERVER]: Starting outbound packet processing for the LLUDP server
+2016-07-24 23:07:48,558 DEBUG (1) - OpenMetaverse.OpenSimUDPBase [UDPBASE]: Starting outbound UDP loop
+2016-07-24 23:07:48,567 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread Outgoing Packets (opensimpi), ID 36
+2016-07-24 23:07:48,579 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread Incoming Packet Async Handling Engine (opensimpi), ID 37
+2016-07-24 23:07:48,590 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread Outgoing Queue Refill Engine (opensimpi), ID 38
+2016-07-24 23:07:48,616 INFO  (1) - OpenSim.Region.CoreModules.Scripting.ScriptModuleComms.ScriptModuleCommsModule [MODULE COMMANDS]: Script engine found, module active
+2016-07-24 23:07:48,630 DEBUG (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Authorization.AuthorizationService [AuthorizationService]: Region opensimpi access restrictions: None
+2016-07-24 23:07:48,639 INFO  (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.Authorization.LocalAuthorizationServicesConnector [AUTHORIZATION CONNECTOR]: Enabled local authorization for region opensimpi
+2016-07-24 23:07:48,800 DEBUG (1) - OpenSim.Region.ScriptEngine.Shared.CodeTools.Compiler [Compiler]: Allowed languages: lsl
+2016-07-24 23:07:49,321 DEBUG (1) - OpenSim.Region.OptionalModules.Avatar.Attachments.TempAttachmentsModule [TEMP ATTACHS]: Registered script functions
+2016-07-24 23:07:49,403 INFO  (1) - OpenSim.Region.Framework.Scenes.Scene [SCENE]: Loading objects from datastore
+2016-07-24 23:07:49,490 DEBUG (1) - OpenSim.Data.MySQL.MySQLSimulationData [REGION DB]: Loaded 0 objects using 0 prims
+2016-07-24 23:07:49,505 DEBUG (1) - OpenSim.Data.MySQL.MySQLSimulationData [REGION DB]: Loaded inventory from 0 objects
+2016-07-24 23:07:49,517 INFO  (1) - OpenSim.Region.Framework.Scenes.Scene [SCENE]: Loaded 0 objects from the datastore
+2016-07-24 23:07:49,529 DEBUG (1) - OpenSim.Region.CoreModules.Framework.UserManagement.UserManagementModule [USER MANAGEMENT MODULE]: Caching creators' data from opensimpi (0 objects)...
+2016-07-24 23:07:49,550 INFO  (1) - OpenSim.Region.Framework.Scenes.Scene [SCENE]: Loading land objects from storage
+2016-07-24 23:07:50,143 DEBUG (1) - OpenSim.Region.CoreModules.World.WorldMap.WorldMapModule [WORLD MAP]: Generating map image for opensimpi
+2016-07-24 23:07:50,197 DEBUG (1) - OpenSim.Region.CoreModules.World.LegacyMap.TexturedMapTileRenderer [TEXTURED MAPTILE RENDERER] Generating Maptile Step 1: Terrain
+2016-07-24 23:07:50,270 DEBUG (1) - OpenSim.Region.CoreModules.World.LegacyMap.TexturedMapTileRenderer [TEXTURED MAPTILE RENDERER] Fetched texture b8d3965a-ad78-bf43-699b-bff8eca6c975, found: True
+2016-07-24 23:07:50,443 DEBUG (1) - OpenSim.Region.CoreModules.World.LegacyMap.TexturedMapTileRenderer [TEXTURED MAPTILE RENDERER] Fetched texture abb783e6-3e93-26c0-248a-247666855da3, found: True
+2016-07-24 23:07:50,524 DEBUG (1) - OpenSim.Region.CoreModules.World.LegacyMap.TexturedMapTileRenderer [TEXTURED MAPTILE RENDERER] Fetched texture 179cdabd-398a-9b6b-1391-4dc333ba321f, found: True
+2016-07-24 23:07:50,606 DEBUG (1) - OpenSim.Region.CoreModules.World.LegacyMap.TexturedMapTileRenderer [TEXTURED MAPTILE RENDERER] Fetched texture beb169c7-11ea-fff2-efe5-0f24dc881df2, found: True
+2016-07-24 23:07:50,971 DEBUG (1) - OpenSim.Region.CoreModules.World.LegacyMap.TexturedMapTileRenderer [TEXTURED MAP TILE RENDERER]: Generating Maptile Step 1: Done in 773 ms
+2016-07-24 23:07:51,017 DEBUG (1) - OpenSim.Region.CoreModules.World.LegacyMap.MapImageModule [MAPTILE]: Generating Maptile Step 2: Object Volume Profile
+2016-07-24 23:07:51,047 DEBUG (1) - OpenSim.Region.CoreModules.World.LegacyMap.MapImageModule [MAPTILE]: Generating Maptile Step 2: Done in 30 ms
+2016-07-24 23:07:51,298 DEBUG (1) - OpenSim.Region.CoreModules.World.WorldMap.WorldMapModule [WORLD MAP]: Region opensimpi has no parcels for sale, not generating overlay
+2016-07-24 23:07:51,307 DEBUG (1) - OpenSim.Region.CoreModules.World.WorldMap.WorldMapModule [WORLD MAP]: Storing map tile c0379e30-6689-4575-9bc8-d7712776228b for opensimpi
+2016-07-24 23:07:51,533 DEBUG (1) - OpenSim.Region.CoreModules.ServiceConnectorsOut.MapImage.MapImageServiceModule [MAP IMAGE SERVICE MODULE]: Upload maptile for opensimpi
+2016-07-24 23:07:51,696 DEBUG (1) - OpenSim.Services.GridService.GridService [GRID SERVICE]: Region opensimpi (661ea5b3-509b-45c1-8ccb-5b9a3d28573b, 256x256) registered at 1000,1000 with flags RegionOnline
+2016-07-24 23:07:51,705 INFO  (1) - OpenSim.Region.Framework.Scenes.Scene [SCENE]: Initializing script instances in opensimpi
+2016-07-24 23:07:51,713 INFO  (1) - OpenSim.Region.Framework.Scenes.Scene [SCENE]: Initialized 0 script instances in opensimpi
+2016-07-24 23:07:51,728 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread Heartbeat-(opensimpi), ID 39
+2016-07-24 23:07:51,891 DEBUG (Heartbeat-(opensimpi)) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Started tracking thread Maintenance (opensimpi), ID 42
+2016-07-24 23:07:53,606 DEBUG (Heartbeat-(opensimpi)) - OpenSim.Region.Framework.Scenes.SceneCommunicationService [SCENE COMMUNICATION SERVICE] Informing 0 neighbours that region opensimpi is up
+2016-07-24 23:08:11,805 INFO  (1) - OpenSim.OpenSimBase [SHUTDOWN]: Closing all threads
+2016-07-24 23:08:11,815 INFO  (1) - OpenSim.OpenSimBase [SHUTDOWN]: Killing listener thread
+2016-07-24 23:08:11,823 INFO  (1) - OpenSim.OpenSimBase [SHUTDOWN]: Killing clients
+2016-07-24 23:08:11,831 INFO  (1) - OpenSim.OpenSimBase [SHUTDOWN]: Closing console and terminating
+2016-07-24 23:08:11,846 INFO  (1) - OpenSim.Region.Framework.Scenes.Scene [SCENE]: Closing down the single simulator: opensimpi
+2016-07-24 23:08:11,883 DEBUG (Heartbeat-(opensimpi)) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Removing thread Heartbeat-(opensimpi), ID 39
+2016-07-24 23:08:11,901 DEBUG (Maintenance (opensimpi)) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Removing thread Maintenance (opensimpi), ID 42
+2016-07-24 23:08:12,359 DEBUG (1) - OpenSim.Region.Framework.Scenes.Scene [SCENE]: Persisting changed objects
+2016-07-24 23:08:12,389 DEBUG (1) - OpenSim.Services.GridService.GridService [GRID SERVICE]: Deregistering region opensimpi (661ea5b3-509b-45c1-8ccb-5b9a3d28573b) at 1000-1000
+2016-07-24 23:08:12,419 DEBUG (1) - OpenSim.OpenSimBase [SHUTDOWN]: Shutting down region opensimpi
+2016-07-24 23:08:12,639 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Removing thread InventoryWorkerThread0, ID 33
+2016-07-24 23:08:12,652 DEBUG (1) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Removing thread InventoryWorkerThread1, ID 34
+2016-07-24 23:08:12,679 INFO  (1) - OpenSim.Region.ClientStack.LindenUDP.LLUDPServer [LLUDPSERVER]: Shutting down the LLUDP server for opensimpi
+2016-07-24 23:08:12,688 DEBUG (1) - OpenMetaverse.OpenSimUDPBase [UDPBASE]: Stopping outbound UDP loop
+2016-07-24 23:08:12,698 DEBUG (1) - OpenMetaverse.OpenSimUDPBase [UDPBASE]: Stopping inbound UDP loop
+2016-07-24 23:08:12,701 DEBUG (Outgoing Packets (opensimpi)) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Removing thread Outgoing Packets (opensimpi), ID 36
+2016-07-24 23:08:12,804 DEBUG (Incoming Packets (opensimpi)) - OpenSim.Framework.Monitoring.Watchdog [WATCHDOG]: Removing thread Incoming Packets (opensimpi), ID 35
+2016-07-24 23:08:12,833 INFO  (1) - OpenSim.Region.ScriptEngine.XEngine.XEngine [XEngine]: Shutting down 0 scripts in opensimpi
+2016-07-24 23:08:12,957 INFO  (1) - OpenSim.Region.OptionalModules.Avatar.XmlRpcGroups.SimianGroupsServicesConnectorModule [SIMIAN-GROUPS-CONNECTOR]: Closing SimianGroupsServicesConnector
+2016-07-24 23:08:12,967 DEBUG (1) - OpenSim.Region.OptionalModules.Avatar.XmlRpcGroups.XmlRpcGroupsServicesConnectorModule [XMLRPC-GROUPS-CONNECTOR]: Closing XmlRpcGroupsServicesConnector
+2016-07-24 23:08:12,987 INFO  (1) - OpenSim.Framework.Servers.BaseOpenSimServer [SHUTDOWN]: Shutdown processing on main thread complete.  Exiting...
