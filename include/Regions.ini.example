@@ -16,8 +16,6 @@
 
 RegionUUID = [% REGIONUUID %]
 Location = [% LocX %],[% LocY %]
-InternalAddress = 0.0.0.0
-; 9000
 InternalPort = [% PORT %]
 AllowAlternatePorts = False
 ExternalHostName = [% SYSTEMIP %]
