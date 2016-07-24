@@ -1,0 +1,584 @@
+From https://fredfire1.wordpress.com/2015/11/30/opensimulator-server-on-rpi2-raspberrypi/
+
+what i did to create the preconfigured image:
+
+a)from the tutorial below i did steps 0-8 and steps 16*) and 17*)
+b)shrunk the image to 2.5 GB (based on https://fredfire1.wordpress.com/2014/07/01/shrunk-image-raspberry-piubuntu/)
+c)zipped it to 1GB
+d)uploaded it to dropbox
+
+what you have to do to use my preconfigured image:
+
+a) download the image, unzip it and burn it on a sd-card of at least 4 GB space
+b) login and change the password for user pi with: passwd
+c) change the ip address to yours
+it is explained in step 7) in the tutorial below
+(i recommend to use “only in your local network” so you have not to worry about security problems)
+d) run sudo raspi-config and expand to full sd card, then reboot
+e)now you are able to start opensim with:
+cd ~/opensim-0.8.2.0/bin
+mono OpenSim.exe
+f)if your sim is running you can login with firestorm explained in step 9) in the tutorial
+
+dropbox link to the image:
+https://www.dropbox.com/s/x64bn0dzbqv0j8j/jessie-lite-opensim-image-7-4-2016.img.zip
+
+used passwords in the preconfigured image:
+—————
+ssh login:
+user=pi
+password=raspberry
+
+mysql:
+user=root
+password=pi
+username=opensimuser
+password=opensimpass
+
+OpenSim information:
+Region Name=opensimpi
+Estate name=testersim
+username – FirstName=Test
+username – LastName=User
+password=Test
+============================================
+
+This tutorial was updated on 4. july 2016
+
+this tutorial is for the raspberrypi2:
+https://www.amazon.de/Raspberry-Pi-quad-core-Cortex-A7-compatibility/dp/B00T2U7R7I/
+
+based on:
+http://www.s-config.com/opensimraspberry-pi-rasbian-hard-float-works/
+https://fredfire1.wordpress.com/2014/07/20/opensim-raspberrypi/
+http://opensimulator.org/wiki/0.8.1_Release
+
+0) get latest pi-light image and burn it on sd-card
+1) install software
+2) setup mysql-database
+3) get latest mono version
+4) download and setup opensim
+5) create your own libode.so and place it in the correct folder
+6) create your own libopenjpeg.so and place it in the correct folder
+7) setup your ip-adress of your pi
+8) manually start opensim and setup
+9) if your sim is running login with firestorm
+
+next steps are optional:
+10*) if the address of your server changes
+11*) scripts to handle opensim
+12*) security- install and setup uncomplicated firewall (ufw)
+13*) usefull opensim commands
+14*) backup and import inventory
+15*) backup and import region
+16*) clean old sourcefiles and no more used programs
+17*) shred logs
+18*) create and delete NPCs
+19*) try Godmode
+
+0) get latest pi-light image and burn it on sd-card
+download and unzip:
+cd ~
+wget http://downloads.raspberrypi.org/raspbian_lite_latest -O raspbian_lite_latest.zip
+unzip raspbian_lite_latest.zip
+
+now burn it on a sd-card
+
+1) install software
+sudo apt-get update && sudo apt-get upgrade -y
+#sudo ldconfig
+sudo reboot
+sudo apt-get install libgdiplus git-core -y
+sudo apt-get clean
+sudo apt-get install mysql-server #you will be asked for a root password this tutorial uses the password: “pi”
+
+2) setup mysql-database
+mysql -u root -p #enter password “pi”
+create database opensim;use opensim;create user 'opensimuser'@'localhost' identified by 'opensimpass';grant all on opensim.* to 'opensimuser'@'localhost';
+quit mysql:
+quit
+
+3) get latest mono version
+add the source:
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF && sudo echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list && sudo apt-get update
+
+upgrade:
+sudo apt-get upgrade -y
+
+install mono-complete:
+sudo apt-get install mono-complete -y
+
+check mono:
+mono --version
+Mono JIT compiler version 4.4.1 #the version should be 4.x
+
+4) download and setup opensim
+cd
+wget -qO - http://opensimulator.org/dist/opensim-0.8.2.0.tar.gz | tar xzf -
+sudo chown pi:pi -R ~/opensim-0.8.2.0/*
+
+4.1) enable standalone and opendynamic-pyhsics
+cd ~/opensim-*/bin
+cp OpenSim.ini.example OpenSim.ini
+sed -i 's:; Include-Architecture = "config-include/Standalone.ini":Include-Architecture = "config-include/Standalone.ini":g' OpenSim.ini
+sed -i 's:; physics = OpenDynamicsEngine:physics = OpenDynamicsEngine:g' OpenSim.ini
+
+4.2 use MySQL as database
+cd ~/opensim-*/bin/config-include
+sed -i 's:Include-Storage = "config-include/storage/SQLiteStandalone.ini";:;Include-Storage = "config-include/storage/SQLiteStandalone.ini";:g' StandaloneCommon.ini
+#
+sed -i 's:;StorageProvider = "OpenSim.Data.MySQL.dll":StorageProvider = "OpenSim.Data.MySQL.dll":g' StandaloneCommon.ini
+#
+sed -i '14,17 s:;ConnectionString:ConnectionString:g' StandaloneCommon.ini
+#
+sed -i '14,17 s:ID=opensim;Password=\*\*\*:ID=opensimuser;Password=opensimpass:g' StandaloneCommon.ini
+
+5) create your own libode.so and place it in the correct folder
+change the config file:
+
+1
+2
+3
+4
+5
+cd  ~/opensim-0.8.2.0/bin/
+> Ode.NET.dll.config
+echo "<configuration>" | sudo tee -a  /home/pi/opensim-0.8.2.0/bin/Ode.NET.dll.config
+echo "  <dllmap dll=\"ode\" target=\"lib32/libode.so\" />" | sudo tee -a  /home/pi/opensim-0.8.2.0/bin/Ode.NET.dll.config
+echo "</configuration>" | sudo tee -a  /home/pi/opensim-0.8.2.0/bin/Ode.NET.dll.config
+cd ~/opensim-0.8.2.0/bin/lib32/
+wget http://www.s-config.com/dl/opensim/libode.so
+
+install the tools for compilation:
+sudo apt-get install automake libtool gcc -y
+
+clone opensim-libs and run autogen.sh for ode:
+cd
+git clone git://opensimulator.org/git/opensim-libs
+cd ~/opensim-libs/trunk/unmanaged/OpenDynamicsEngine-0.10.1
+cp ./autogen.sh ../OpenDynamicsEngine-0.13.1mod/autogen.sh
+cd ..
+cd OpenDynamicsEngine-0.13.1mod
+sudo chmod 777 autogen.sh
+sh autogen.sh
+
+run configure for ode:
+cd ~/opensim-libs/trunk/unmanaged/OpenDynamicsEngine-0.13.1mod
+./configure --with-trimesh=opcode --disable-asserts --enable-shared --disable-demos --without-x --disable-threading-intf
+
+run make to compile your own libode.so:
+cd ~/opensim-libs/trunk/unmanaged/OpenDynamicsEngine-0.13.1mod
+make #this takes long..
+
+copy the generated files over:
+cd ~/opensim-libs/trunk/unmanaged/OpenDynamicsEngine-0.13.1mod
+cp ./ode/src/.libs/libode.so.4.1.0 ~/opensim-0.8.2.0/bin/lib32/libode.so.4.1.0
+cp ./ode/src/.libs/libode.so.4 ~/opensim-0.8.2.0/bin/lib32/libode.so.4
+cp ./ode/src/.libs/libode.so ~/opensim-0.8.2.0/bin/lib32/libode.so
+
+#cd ~/opensim-0.8.2.0/bin/lib32/
+#wget http://www.s-config.com/dl/opensim/libopenjpeg.so
+
+6) create your own libopenjpeg.so and place it in the correct folder
+clone the git and change a part of the makefile:
+cd
+git clone git://github.com/openmetaversefoundation/libopenmetaverse.git libopenmetaverse
+cd ~/libopenmetaverse/openjpeg-dotnet/
+sed -i 's:ARCHFLAGS=-m32:ARCHFLAGS=:g' Makefile
+
+run make:
+cd ~/libopenmetaverse/openjpeg-dotnet/
+make
+
+copy over the compiled files:
+cd ~/libopenmetaverse/openjpeg-dotnet/
+cp -p libopenjpeg-dotnet-2-1.5.0-dotnet-1-i686.so ~/opensim-0.8.2.0/bin/lib32/libopenjpeg.so
+
+change the config file:
+
+1
+2
+3
+4
+5
+cd  ~/opensim-0.8.2.0/bin/
+> OpenMetaverse.dll.config
+echo "<configuration>" | sudo tee -a /home/pi/opensim-0.8.2.0/bin/OpenMetaverse.dll.config
+echo "<dllmap dll=\"openjpeg-dotnet.dll\" target=\"lib32/libopenjpeg.so\" />" | sudo tee -a  /home/pi/opensim-0.8.2.0/bin/OpenMetaverse.dll.config
+echo "</configuration>" | sudo tee -a /home/pi/opensim-0.8.2.0/bin/OpenMetaverse.dll.config
+7) setup your ip-adress of your pi
+replace in the following snippet the baseurl and the publicport with your setup
+
+then paste the snippet in the beginning of the file ~/opensim-0.8.2.0/bin/config-include/StandaloneCommon.ini
+
+if you want to use the opensim-server only in your local network you can simply use your local ip-adress.
+
+if you want to use your opensim-server from the internet
+enable port forwarding tcp/udp in your router for your public port to your raspberrypi
+setup a global url for example with no-ip
+to setup a global url for your BaseURL you can use noip
+https://fredfire1.wordpress.com/2016/04/27/install-no-ip-raspberrypi/
+
+nano ~/opensim-0.8.2.0/bin/config-include/StandaloneCommon.ini
+
+1
+2
+3
+[Const]
+PublicPort = 9000
+BaseURL = http://opensimpi
+run the following code to change the grid name to opensimpi and also change the grid description:
+
+1
+2
+3
+cd ~/opensim-0.8.2.0/bin/config-include/
+sed -i '/GridInfoService/,/MapImageService/ s!the lost continent of hippo!Raspberry Pi OpenSim Default Load!g' StandaloneCommon.ini
+sed -i '/GridInfoService/,/MapImageService/ s!hippogrid!opensimpi!g' StandaloneCommon.ini
+8) manually start opensim and setup
+cd ~/opensim-0.8.2.0/bin
+mono OpenSim.exe
+
+Region Name: opensimpi
+#everything else press just “enter” until Estate name:..
+
+Estate name: testersim
+username – FirstName: Test
+username – LastName: User
+password: Test
+
+exit opensim:
+shutdown
+
+9) if your sim is running login with firestorm
+(this is better explained in under the topic: “Client configuration.” in:
+http://www.s-config.com/opensimraspberry-pi-rasbian-hard-float-works/)
+for login with firestorm add in gridmanager:
+use the ip of your pi for example:
+http://opensimpi:9000
+
+username – FirstName: Test
+username – LastName: User
+password: Test
+
+10*) if the address of your server changes
+(for example if you use wifi instead of cable or other way round you might get another address in local network)
+nano ~/opensim-0.8.2.0/bin/config-include/StandaloneCommon.ini
+
+and change your new ip for example from http://opensimpi to:
+http://192.168.1.12
+
+then restart opensim
+
+also change the grid in firestorm:
+1) change gridmanager to another random grid then delete your opensimpi-grid from settings (preferences->opensim->grid manager)
+2) now add the new with http://192.168.1.12:9000/
+
+11*) scripts to handle opensim
+for all code after this you must have installed screen:
+sudo apt-get install screen -y
+
+script to start opensim in background:
+touch /home/pi/.startOS.sh
+chmod +x /home/pi/.startOS.sh
+nano /home/pi/.startOS.sh
+
+1
+2
+#!/bin/bash
+screen -dmS opensimpi sh -c 'cd /home/pi/opensim-0.8.2.0/bin/;mono OpenSim.exe'
+automatic start opensim on boot:
+install screen:
+sudo apt-get install screen -y
+edit the crontab:
+crontab -e
+and paste:
+
+1
+@reboot sleep 10 && /usr/bin/screen -dmS opensimpi sh -c 'cd /home/pi/opensim-0.8.2.0/bin/;/usr/bin/mono OpenSim.exe'
+@reboot sleep 10 && screen -dmS opensimpi sh -c 'cd /home/pi/opensim-0.8.2.0/bin/;mono OpenSim.exe'
+
+script for shutdown opensim[shutdowns opensim that has been started in background from terminal or from boot]:
+touch /home/pi/.shutdownOS.sh
+chmod +x /home/pi/.shutdownOS.sh
+nano /home/pi/.shutdownOS.sh
+
+1
+2
+#!/bin/bash
+screen -S opensimpi -p 0 -X stuff 'shutdown\012' && echo waiting 10sec for opensimulator to shutdown then kill the screen-process && sleep 10 && screen -S opensimpi -X quit
+script for shutdown opensim then pi:
+touch /home/pi/.shutdownPi.sh
+chmod +x /home/pi/.shutdownPi.sh
+nano /home/pi/.shutdownPi.sh
+
+1
+2
+#!/bin/bash
+screen -S opensimpi -p 0 -X stuff 'shutdown\012' && echo waiting 10sec for opensimulator to shutdown then shutdown pi && sleep 10 && sudo shutdown -h now
+monit scripts:
+
+12*) security- install and setup uncomplicated firewall (ufw)
+based on:
+https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server
+https://gambaru.de/blog/2012/03/20/debian-server-mit-der-unkomplizierten-firewall-ufw-absichern/
+http://forums.osgrid.org/viewtopic.php?f=15&t=4020
+
+install ufw:
+sudo apt install ufw
+
+default deny any package:
+sudo ufw default deny
+
+allow port 22 for ssh:
+sudo ufw allow proto tcp from any to any port 22
+
+ufw limit port 22 for ssh:
+sudo ufw limit proto tcp from any to any port 22
+
+allow port 9000 for opensim:
+sudo ufw allow 9000/tcp
+sudo ufw allow 9000/udp
+
+enable firewall:
+sudo ufw enable
+
+get ufw status:
+sudo ufw status
+
+disable port 9000:
+#sudo ufw delete allow 9000/tcp
+#sudo ufw delete allow 9000/udp
+
+disable firewall:
+#sudo ufw disable
+
+also change mysql passwords for mysql for users:
+root
+opensimuser
+
+opensim user password for Test User
+..
+
+13*) usefull opensim commands
+based on:
+http://opensimulator.org/wiki/Server_Commands
+
+create more users:
+create user [first] [last] [passw] [RegionX] [RegionY] [Email] – creates a new user and password
+or just: create user – and server prompts for all data
+for example:
+create user
+Firstname:Test2
+Lastname:User
+password:Test2
+
+restart all sims:
+restart
+
+show script infos:
+scripts show
+
+lower terrain 10 meters:
+terrain lower 10
+
+raise the terrain for 10 meters:
+terrain elevate 10
+
+save the current terrain file:
+terrain save /home/pi/myterrain.raw
+or:
+terrain save /home/pi/myterrain.png
+
+14*) backup and import inventory
+http://opensimulator.org/wiki/Inventory_Archives/de
+http://opensimulator.org/wiki/Server_Commands
+
+save the whole inventory to a iar file(took 4 minutes for me):
+save iar Test User /* Password
+it was able to find it in /home/pi/opensim-0.8.2/bin/user-inventory.iar
+
+save only one item Testobject that is located in the /Objects folder:
+save iar Test User "Objects/objectname" Password objectname.iar
+
+copy the inventar over to another account:
+load iar --merge Test2 User / PASSWORD user-inventory.iar
+
+simply load iar files from the web to the inventory of Test User:
+load iar Test User / Test http://justincc.org/downloads/iars/my-great-items.iar
+
+load iar Test User / Test http://www.aviefactory.com/Gene_Jacobs_Clothes.iar
+
+load iar Test User / Test http://www.aviefactory.com/Genes_Female_Stuff.iar
+
+load iar Test User / Test http://www.outworldz.com/Sculpts/cgi/files/Ferd%20Free%20Fishing%20System%20IAR/Ferd%20Free%20Fishing%20System%20IAR.iar
+
+load iar Test User / Test http://www.outworldz.com/Sculpts/cgi/files/OS%20Avatars%20Spring%202011%20IAR/OS%20Avatars%20Spring%202011%20IAR.iar
+
+load iar Test User / Test http://www.outworldz.com/cgi/sculpt-save.plx?File=/Sculpts/cgi/files/LK-ANIMATIONS.iar
+
+load iar Test User / Test http://www.outworldz.com/cgi/sculpt-save.plx?File=/Sculpts/cgi/files/Arcadia%20Bakery_3.3b.iar
+
+load iar Test User / Test http://files.zadaroo.com/iars/furry-avatars.iar
+
+you can find more iar files at:
+http://www.outworldz.com/cgi/freesculpts.plx?q=IAR
+
+other websites:
+http://www.hypergridbusiness.com/2011/06/where-to-get-content-for-opensim/
+http://opensim-edu.org/blog/freebie-websites/
+
+15*) backup and import region
+backup region:
+save oar [filename] – save the current region to an OpenSimulator archive. Default filename is region.oar.
+import region:
+load oar [filename] – load an OpenSimulator archive. This entirely replaces the current region. Default filename is region.oar. See OpenSim Archives.
+
+you can get some more archives from:
+http://www.outworldz.com/cgi/freesculpts.plx?q=OAR
+http://myopensim.com/index.php?page=Assets&action=Category&categoryid=8&catname=OAR%20Files
+
+16*) clean old sourcefiles and no more used programs
+sudo rm -r ~/libopenmetaverse
+sudo rm -r ~/opensim-libs
+sudo apt purge git-core
+sudo apt-get autoremove
+sudo apt-get clean
+
+17*) shred logs
+usage shred:
+shred -n 3 -z -u -v filename #n=overwide n times instead of default 25, z=final overwrite with zeros, u=truncate and remove file after overwriting,v=show progress
+#sudo find /var/log -type f -name "*.gz" -delete
+#
+shred -n 3 -z -u -v ~/opensim-0.8.2.0/bin/OpenSimConsoleHistory.txt
+shred -n 3 -z -u -v ~/opensim-0.8.2.0/bin/OpenSim.log
+#
+shred -n 3 -z -u -v ~/.nano_history
+shred -n 3 -z -u -v ~/.mysql_history
+shred -n 3 -z -u -v ~/.bash_history
+#
+sudo shred -n 3 -z -u -v /var/log/kern.log
+sudo shred -n 3 -z -u -v /var/log/mysql.log
+sudo shred -n 3 -z -u -v /var/log/dpkg.log
+sudo shred -n 3 -z -u -v /var/log/alternatives.log
+sudo shred -n 3 -z -u -v /var/log/bootstrap.log
+sudo shred -n 3 -z -u -v /var/log/daemon.log
+sudo shred -n 3 -z -u -v /var/log/messages
+sudo shred -n 3 -z -u -v /var/log/debug
+sudo shred -n 3 -z -u -v /var/log/regen_ssh_keys.log
+sudo shred -n 3 -z -u -v /var/log/syslog
+sudo shred -n 3 -z -u -v /var/log/auth.log
+sudo shred -n 3 -z -u -v /var/log/fontconfig.log
+#
+sudo shred -n 3 -z -u -v /var/log/apt/history.log
+sudo shred -n 3 -z -u -v /var/log/apt/term.log
+sudo shred -n 3 -z -u -v /var/log/mysql/error.log
+
+18*) create and delete NPCs
+to enable NPCs paste the following code into the beginning of the file StandaloneCommon.ini:
+nano ~/opensim-0.8.2.0/bin/config-include/StandaloneCommon.ini
+
+1
+2
+3
+4
+5
+6
+7
+8
+[XEngine]
+Enabled = true
+;;Allow the use of os* functions (some are dangerous)
+AllowOSFunctions = true
+OSFunctionThreatLevel = Severe
+ 
+[NPC]
+Enabled = true
+shutdown your opensim and start it again.
+
+now you can use lsl scripts with npc code.
+
+lsl script to create npcs:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+list bots = ["barkeeper", "slave", "monkey"];
+ 
+default
+{
+    touch_start(integer number)
+    {
+        vector npcPos = llGetPos() + <1,0,0>;
+        osAgentSaveAppearance(llDetectedKey(0), "appearance");
+        integer x;
+        integer length = llGetListLength(bots);
+        key npc;
+         
+        for (x = 0; x < length; x++)
+        {
+           
+          npc = osNpcCreate(llList2String(bots, x), "Resident", npcPos, "appearance");
+        } 
+    }
+}
+lsl script to remove all npcs:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+default
+{
+    touch_start(integer number)
+    {
+        list avatars = llList2ListStrided(osGetAvatarList(), 0, -1, 3);
+        integer i;
+        llSay(0,"NPC Removal: No avatars will be harmed or removed in this process!");
+        for (i=0; i<llGetListLength(avatars); i++)
+        {
+            string target = llList2String(avatars, i);
+            osNpcRemove(target);
+            llSay(0,"NPC Removal: Target "+target);
+        }
+    }
+}
+other NPC scripts:
+http://www.outworldz.com/Opensim/posts/NPC/
+http://www.outworldz.com/cgi/freescripts.plx?ID=27
+http://www.outworldz.com/cgi/freescripts.plx?ID=1004
+http://was.fm/opensim/npc/wandering
+
+19*) try Godmode
+go into godmode with Test User (firestorm):
+Ctrl + Alt + D (advanced)
+Ctrl + Alt + Q (developer)
+Ctrl + Alt + G (request admin status)
+Ctrl + Alt + Shift + G (leave admin status)
