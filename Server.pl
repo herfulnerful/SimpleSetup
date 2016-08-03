@@ -1,18 +1,41 @@
 #!perl.exe
 
 use feature ':5.10'; # say works
-my $debug = 1; # set to a true value to run some simple tests
+
+my $debug = $ARGV[0];  # set first argument to run some simple tests
 
 $| = 1;  # non buffered STDOUT
 
 use strict;
 package MyWebServer;
 
-use Template;
+# we need the local LAN and public WAN addresses
+# ipify.org returns the public IP
+my $WANIP = HTTPGetPage('https://api.ipify.org');
+say 'WAN IP: ' . $WANIP;
+my $LANIP = GetPrivateIP();
+say 'LAN IP: ' . $LANIP;
+
+use Template;  # this will let us use [% DIRECTIVE %] in any template file and replace them with content
+my $tt = Template->new({
+      INTERPOLATE => 0, # is 1 it lets us use $x vars instead of [$ x %] syntax
+      ENCODING => 'utf8',
+      ABSOLUTE => 1, # full path is required if true
+      ANYCASE => 1,  # [% x %] or [% X %]
+      INCLUDE_PATH => 'include', # look in this folder, too
+      ERROR      => 'error.tt',
+   }) or die $Template::ERROR;
+
+# set up a simple web server
 use HTTP::Server::Simple::CGI;
 use base qw(HTTP::Server::Simple::CGI);
+
 use SSDB; # a simple database module that makes a Database from a hash
 my $DB = SSDB->new('SettingsDB'); # two files named SettingsDB will appear on disk- its really a hash
+
+use Cwd;
+my $path = getcwd;
+say 'Path: ' . $path;
 
 # various simple diagnostics
 if ($debug) {
@@ -24,7 +47,7 @@ if ($debug) {
    $DB->write('test',1);
    if ($DB->read('test') != 1)
    {
-      print 'Error, db failed to write - check perms on folder\n';
+      say 'Error, db failed to write - check perms on folder, there is no write access for you';
       exit 1;
    } else {
       say 'SettingsDB is working';
@@ -38,16 +61,18 @@ if ($debug) {
    say 'y: ' . GetFree('x');
    say 'x: ' . GetFree('y');
 
-   # ditto for ipify.org
-   say 'Public WAN IP: ' . GetPublicIP();
-   say 'Private LAN IP: ' . GetPrivateIP();
+   use FakeCGI;
+   my $cgi = new FakeCGI($DB);
+
+   # test each fn()
+   &loopback($cgi);
+   &index($cgi);
+   &config($cgi);
+   &save($cgi);
+   &start($cgi);
+   &stop($cgi);
 }
 
-use Cwd;
-my $dir = getcwd;
-
-my $path = getcwd;
-say 'Path: ' . $path;
 
 # The urls the webserver will process
 my %dispatch = (
@@ -55,21 +80,42 @@ my %dispatch = (
    '/config'   => \&config,
    '/save'	   => \&save,
    '/start'    => \&start,
-   '/stop'    => \&stop,
+   '/stop'     => \&stop,
+   '/loopback' => \&loopback,
    );
 
-
-# start the server on port 80
- my $web = MyWebServer->new(8080);
- if (! $debug) {
-   my $address = GetPrivateIP();
-   $web->host($address);
- }
+my $WebPort  = '8080';
+# start the server on port 8080
+ my $web = MyWebServer->new($WebPort);
+$web->host($LANIP);
 
 my $pid = $web->background();
-print "Use 'kill $pid' to stop web server.\n";
 
+say "Please wait for disgnostics to finish.";
+
+# Try the WAN IP first to see if thwe router is okay and web server is up
+my $TESTIP = $WANIP;
+my $loopbackdata = HTTPGetPage('http://' . $TESTIP . ':' . $WebPort . '/loopback');
+my @count = $loopbackdata =~ /loopback/g;
+# there are 90 "loopbacks" in the test page
+if (scalar @count eq 90)
+{
+   say ('Router loopback works. Opensimulator server will use the WAN IP address ' . $WANIP);
+   $TESTIP= $WANIP;
+   $DB->write('ExternalHostName', $WANIP );
+} else {
+   $loopbackdata = HTTPGetPage('http://' . $LANIP . ':' . $WebPort . '/loopback');
+   @count = $loopbackdata =~ /loopback/g;
+   if (scalar @count eq 90){
+      say ('Router loopback did not work. Setting Opensimulator server to use the local LAN IP address ' . $LANIP);
+      $DB->write('ExternalHostName', $LANIP );
+   } else {
+      say 'Loopback test failed, web server failed to start';
+   }
+}
 exit;
+
+######## END MAIN ########
 
 =pos
 handle_request() is a callback from MyWebServer to handle the dispatching of the web page
@@ -87,13 +133,24 @@ sub handle_request {
       $handler->($cgi);
 
   } else {
-      print "HTTP/1.0 404 Not found\r\n";
+      say "HTTP/1.0 404 Not found\r\n";
       print $cgi->header,
             $cgi->start_html('Not found'),
             $cgi->h1('Not found'),
             $cgi->end_html;
   }
 }
+
+=pod
+loopback() paints a large chunk of data to test the ability of the router to loop back to private LAN from publiuc WAN
+=cut
+
+sub loopback {
+   my $cgi = shift;
+   my $content = { Title => "Opensimulator",};
+   MakeHTML($cgi,'loopback.tt',$content);
+};
+
 
 =pod
 index() paints a web page after stashing away the form vars.
@@ -137,15 +194,6 @@ sub save {
    $DB->write('ExternalHostName',  $cgi->param('ExternalHostName')) if $cgi->param('ExternalHostName');
    $DB->write('SYSTEMIP',  $cgi->param('SYSTEMIP')) if $cgi->param('SYSTEMIP');
 
-   use Template;  # this will let us use [% DIRECTIVE %] in any template file and replace them with content
-   my $tt = Template->new({
-         INTERPOLATE => 0, # is 1 it lets us use $x vars instead of [$ x %] syntax
-         ENCODING => 'utf8',
-         ABSOLUTE => 1, # full path is required if true
-         ANYCASE => 1,  # [% x %] or [% X %]
-         INCLUDE_PATH => 'include', # look in this folder, too
-         ERROR      => 'error.tt',
-      }) or die $Template::ERROR;
 
 
    my $body;
@@ -163,7 +211,7 @@ sub save {
               };
 
       # update the tags in Regions.ini
-      $tt->process($dir .'/include/' . 'Regions.ini.example', $content, \$output);
+      $tt->process($path .'/include/' . 'Regions.ini.example', $content, \$output);
       if (open (INI, ">$path/opensimtest/bin/Regions/Region.ini"))
       {
          print INI $output;
@@ -171,7 +219,7 @@ sub save {
       }
 
       # now for Opensim.ini
-      $tt->process($dir .'/include/' . 'Opensim.ini.example', $content, \$output);
+      $tt->process($path .'/include/' . 'Opensim.ini.example', $content, \$output);
       if (open (INI, ">$path/opensimtest/bin/Opensim.ini"))
       {
          print INI $output;
@@ -241,11 +289,11 @@ bin/Regions/ directory. The usual port for the first region is 9000, but each re
       $DB->write('Port',$Port);
    }
 
-   # Private  IP that is found on the inside of the firewall. Could be localhost, or 127.0.0.1, which is not remotely connectable.
-   # Preferably the actual IP, or SYSTEMIP, both of which are connectable.
+   # PUBLIC IP that is found on the outside of the firewall. Could also be localhost, or 127.0.0.1, which is not remotely connectable.
+   # For Hypergating or allowing others to visit, this MUST be the public IP or DNS name of the router.
    my $ExternalHostName  = $DB->read('ExternalHostName');
    if (! $ExternalHostName ) {
-     $ExternalHostName  =  GetPublicIP();
+     $ExternalHostName  =  $WANIP;
      $DB->write('ExternalHostName ',$ExternalHostName );
    }
 
@@ -253,7 +301,7 @@ bin/Regions/ directory. The usual port for the first region is 9000, but each re
    # Preferably the actual IP, or SYSTEMIP, both of which are connectable.
    my $SYSTEMIP = $DB->read('SYSTEMIP');
    if (! $SYSTEMIP) {
-     $SYSTEMIP =  GetPrivateIP();
+     $SYSTEMIP =  $LANIP;
      $DB->write('SYSTEMIP',$SYSTEMIP);
    }
 
@@ -273,7 +321,7 @@ bin/Regions/ directory. The usual port for the first region is 9000, but each re
 sub start {
    my $cgi = shift;
    # stubs for now. Should start the Opensim in console mode as a forked task, and display a Ajax page attached to the console
-   my $content = {HTML => 'a stub'};
+   my $content = {HTML => 'a stub' };
    MakeHTML($cgi,'start.tt',$content);
 }
 
@@ -297,34 +345,22 @@ sub MakeHTML {
    my $page = shift; # page file name, usually *.tt
    my $content= shift;  # a ref to the data structure we want the Template to fill in.
 
-   # crate the template object
-   my $tt = Template->new({
-         INTERPOLATE => 0,    # if set, it will accept and substitute $perl vars.
-         ENCODING => 'utf8',
-         ABSOLUTE => 1,       # uses absolute paths
-         ANYCASE => 1,        # [% var %] or [% Var %] or [% VAR %]
-         INCLUDE_PATH => 'include',    # look in this folder, too
-         ERROR      => 'error.tt',     # paint this if something goes wrong
-      }) or die $Template::ERROR;
-
    my $output;
-   $tt->process($path .'/' . $page, $content, \$output);
+   $tt->process($path . '/'. $page, $content, \$output);
 
-   print $cgi->header,
-         $cgi->start_html("Simple Opensimulator"),
-         $cgi->p($output),
-         $cgi->end_html;
+   print $cgi->header;
+   print $output;
 }
 
 =pod
 We need the public-facing IP address for Opensim if we are running in a HG or Grid mode.
 =cut
 
-sub GetPublicIP {
-
+sub HTTPGetPage {
+   my $URL = shift || die 'no parameter';
    use LWP::UserAgent;
    my $ua = LWP::UserAgent->new;
-   my $req = HTTP::Request->new(GET => 'https://api.ipify.org');# Create a request
+   my $req = HTTP::Request->new(GET => $URL);# Create a request
    my $res = $ua->request($req); # Pass request to the user agent and get a response back
    if ($res->is_success) {  # Check and get the outcome of the response
       return $res->content;
