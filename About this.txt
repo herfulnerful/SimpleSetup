@@ -1,3 +1,29 @@
+
+To install this repo on a Raspberry Pi:
+
+#Install git:
+apt-get install git
+
+#Install the repository
+git clone https://github.com/Outworldz/SimpleSetup
+
+# Install perl dependencies, cpanMinus and the files listed in cpanfile
+sh Install.sh
+
+# get your IP address
+ifconfig
+
+look for the eth0 interface of your have a hardeired connection
+
+#run the app:
+perl Server.pl
+
+Using another PC, use a web browser and navigate to the IP address of your Pi.
+
+
+How this was built:
+
+
 From https://fredfire1.wordpress.com/2015/11/30/opensimulator-server-on-rpi2-raspberrypi/
 
 what i did to create the preconfigured image:
