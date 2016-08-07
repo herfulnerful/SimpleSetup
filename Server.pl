@@ -71,6 +71,7 @@ if ($debug) {
    &save($cgi);
    &start($cgi);
    &stop($cgi);
+   exit;
 }
 
 
@@ -423,16 +424,9 @@ sub GetPrivateIP {
    use Sys::Hostname;
    use Socket;
    my $address = inet_ntoa((gethostbyname(hostname))[4]);
-
-   if ($address eq '127.0.0.1' || $address !~ /^\d+\.\d+\.\d+\.\d+$/)
+   if ($address eq '127.0.0.1' || $address !~ /^\d+\.\d+\.\d+\.\d+$/ || $address eq $WANIP)
    {
-      # a possible cure for problems with Ip addresses not being public
-      use Net::Address::IP::Local;
-      $address      = Net::Address::IP::Local->public;
-      if ($address eq '127.0.0.1' || $address !~ /^\d+\.\d+\.\d+\.\d+$/)
-      {
          $address = 'localhost';
-      }
    }
 
    return $address;
